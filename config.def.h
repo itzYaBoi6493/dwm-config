@@ -58,14 +58,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-// static const char *termcmd[]  = { "st", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-g", "1", "-l", "10", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL};
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },	// spawn dmenu: mod + d
-	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },	// spawn terminal: mod + enter
+	{ MODKEY,             XK_Return, spawn,          SHCMD("alacritty --working-directory \"$($HOME/scripts/cwd.sh)\"") },	// spawn terminal: mod + enter
 	{ MODKEY,                       XK_b,      togglebar,      {0} },	// toggle bar: mod + b
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },	// climb up stack: mod + j
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },	// climb down stack: mod + k
