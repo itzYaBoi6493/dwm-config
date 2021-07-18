@@ -64,7 +64,7 @@ static const char *termcmd[]  = { "st", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },	// spawn dmenu: mod + d
-	{ MODKEY,             XK_Return, spawn,          SHCMD("alacritty --working-directory \"$($HOME/scripts/cwd.sh)\"") },	// spawn terminal: mod + enter
+	{ MODKEY,             XK_Return, spawn,          SHCMD("st -d \"$($HOME/scripts/cwd.sh)\"") },	// spawn terminal: mod + enter
 	{ MODKEY,                       XK_b,      togglebar,      {0} },	// toggle bar: mod + b
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },	// climb up stack: mod + j
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },	// climb down stack: mod + k
