@@ -63,7 +63,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,		{.v = dmenucmd} },	// spawn dmenu: mod + d
+	{ MODKEY,                       XK_d,      spawn,	SHCMD("dmenu_run $($HOME/scripts/width.sh) -l 10") },	// spawn dmenu: mod + d
 	{ MODKEY,             XK_Return, spawn,		 SHCMD("st -d \"$($HOME/scripts/cwd.sh)\"") },	// spawn terminal: mod + enter
 	{ MODKEY,                       XK_b,      togglebar,      {0} },	// toggle bar: mod + b
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },	// climb up stack: mod + j
